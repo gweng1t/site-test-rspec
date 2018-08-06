@@ -7,10 +7,15 @@ class UsersController < ApplicationController
   	mon_user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
   	if mon_user.save
   		puts "Mon user à été Enregister"
+  		log_in(mon_user)
   		redirect_to root_path
   	else
   		puts "Mon user a un soucis :("
   	end
+  end
+
+  def secret_page
+  	@tab_users = User.all
   end
 
 end

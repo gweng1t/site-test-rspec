@@ -7,10 +7,10 @@
 	<header>
 		<nav class="nav nav-pills nav-fill">
 			<a class="nav-item nav-link" href="/">Accueil</a>
-			<a class="nav-item nav-link" href="/new">Inscription</a>
 			<% if logged_in? %>
 				<%= link_to "LOG OUT", "/logout", method: :delete, class: 'nav-link nav-item' %>
 			<% else %>
+				<a class="nav-item nav-link" href="/new">Inscription</a>
 				<%= link_to "Se connecter", "/login", class: 'nav-link active nav-item' %>
 			<% end %>
 		</nav>

@@ -7,10 +7,10 @@
 	<header>
 		<nav class="nav nav-pills nav-fill">
 			<a class="nav-item nav-link active" href="/">Accueil</a>
-			<a class="nav-item nav-link" href="/new">Inscription</a>
 			<% if logged_in? %>
 				<%= link_to "LOG OUT", "/logout", method: :delete, class: 'nav-link nav-item' %>
 			<% else %>
+				<a class="nav-item nav-link" href="/new">Inscription</a>
 				<%= link_to "Se connecter", "/login", class: 'nav-link nav-item' %>
 			<% end %>
 		</nav>
@@ -23,7 +23,7 @@
 
 		<% if logged_in? %>
 			<h2>Si Login :</h2>
-			<a href="<%= root_path %>" class="btn btn-lg btn-primary">Lien page du Club</a>
+			<a href="/page-club" class="btn btn-lg btn-primary">Lien page du Club</a>
 		<% else %>
 			<br><br>
 			<h2>Si PAS LOGIN:</h2>
