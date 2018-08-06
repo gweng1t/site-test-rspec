@@ -2,21 +2,45 @@
 <html>
 <head>
 	<title>HOME</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
 </head>
 <body>
 	<header>
 		<nav class="nav nav-pills nav-fill">
-			<a class="nav-item nav-link active" href="#">Accueil</a>
-			<a class="nav-item nav-link" href="#">Link</a>
-			<a class="nav-item nav-link disabled" href="#">Autre</a>
+			<a class="nav-item nav-link active" href="/">Accueil</a>
+			<a class="nav-item nav-link" href="/new">Inscription</a>
+			<% if logged_in? %>
+				<%= link_to "LOG OUT", "/logout", method: :delete, class: 'nav-link nav-item' %>
+			<% else %>
+				<%= link_to "Se connecter", "/login", class: 'nav-link nav-item' %>
+			<% end %>
 		</nav>
-		
 	</header>
 	
 	<div class="jumbotron">
-		<p>Bonjour :)</p>
+		<p>Bienvenue à toi :)</p>
+
+		<h1>Affichage selon</h1>
+
+		<% if logged_in? %>
+			<h2>Si Login :</h2>
+			<a href="<%= root_path %>" class="btn btn-lg btn-primary">Lien page du Club</a>
+		<% else %>
+			<br><br>
+			<h2>Si PAS LOGIN:</h2>
+			<a href="/new" class="btn btn-lg btn-primary">Lien pour s'inscrire</a>
+			<a href="<%= root_path %>" class="btn btn-lg btn-primary">Lien pour se connecter</a>
+		<% end %>
 	</div>
+
+	<% @tab_user.each do |user| %>
+	<ul>
+		<li>
+			<%= user.first_name+ ' ' +user.last_name %>
+		</li>
+	</ul>
+
+	<% end %>
+
 
 </body>
 </html>
