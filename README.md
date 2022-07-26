@@ -41,4 +41,4 @@ $ localhost:4567
 ruby '2.5.1'
 rails '5.2.0'
 
-Fait par CASSAND Gwendoline
+Fait par G.C
